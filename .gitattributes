@@ -1,2 +1,4 @@
 frontend/* linguist-detectable=true
 frontend/* linguist-language=JavaScript
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
