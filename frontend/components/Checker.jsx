@@ -9,11 +9,35 @@ import React, { useState } from 'react'
 
 export default function Checker() {
 const [email , setEmail]=useState("")
+const [answer , setAnswer]=useState("")
+const [loading,setLoading]=useState(true);
   const  setEmailText=(e)=>{
   const text=e.target.value;
   setEmail(text)
   console.log(text)
+  setLoading(false)
   }
+  const  handleSubmit=async()=>{
+  try{
+    const res =await fetch('http://127.0.0.1:8000/predict',{
+        method:'POST',
+        headers: {
+          'Content-Type': 'application/json', 
+        },
+        body: JSON.stringify({ text: email }),
+
+    })
+    
+    const json = await res.json()
+    setAnswer(json.prediction)
+
+
+
+  }catch{
+    console.log("Something went wrong mate")
+
+  }
+ }
 
   
   return (
@@ -32,12 +56,13 @@ const [email , setEmail]=useState("")
             className="min-h-[150px] resize-none bg-gray-900 border-gray-700 text-white"
           />
           <Button
-            //onClick={handleCheck}
-            //disabled={loading || !emailText.trim()}
+            onClick={handleSubmit}
+            disabled={loading || !email.trim()}
             className="w-full bg-purple-600 hover:bg-purple-500"
           >
            Verify
           </Button>
+          {loading ?'Enter a valid email to check ':`${answer}`}
 
           
         </CardContent>
