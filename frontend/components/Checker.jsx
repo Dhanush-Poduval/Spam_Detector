@@ -22,7 +22,7 @@ const [loading,setLoading]=useState(true);
     const res =await fetch('http://127.0.0.1:8000/predict',{
         method:'POST',
         headers: {
-          'Content-Type': 'application/json', 
+          'Content-Type': 'application/json', //important when u are sending text 
         },
         body: JSON.stringify({ text: email }),
 
