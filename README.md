@@ -20,35 +20,52 @@ A simple web app that checks if an email is **spam** or **not spam** using a mac
 
 ## 📂 Project Structure
 spam-classifier/
+---
 │── backend/
+---
 │   ├── main.py
+---
 │   ├── schemas/
+---
 │   ├── models/
+---
 │   │   ├── spam_model.pkl
+---
 │   │   ├── tfidf_vectorizer.pkl
+---
 │── frontend/
+---
 │   ├── pages/
+---
 │   ├── components/
+
 
 ---
 
 
 Clone the repo
-git clone https://github.com/Dhanush-Poduval/spam-classifier.git
+git clone https://github.com/Dhanush-Poduval/Spam_Detector.git
 cd spam-classifier
 
 ---
 
 Backend Setup
+---
 cd backend
+---
 pip install -r requirements.txt
+---
 uvicorn main:app --reload
 
 ---
 
 Frontend Setup
+---
 cd frontend
+---
 npm install
+---
 npm run dev
+--
 
 
